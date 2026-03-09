@@ -30,8 +30,6 @@ For developers building parsers, bridging proprietary data, or supporting comple
 - `[?]` : On Hold / Needs Review / Question
 - `[!]` : Canceled / Dropped
 
-*Note: Environments that only support core GFM will degrade gracefully, rendering extended states as plain text `[-]` within a standard list item.*
-
 ### Priority
 
 Priority is defined independently of the completion state. You can set the priority of a task by adding exclamation marks `!` immediately following the bracketed state, separated by a space. The number of exclamation marks designates the priority level, up to a maximum of 3.
