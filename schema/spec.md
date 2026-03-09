@@ -17,15 +17,20 @@ A task item is an unordered list item starting with a bracketed space `[ ]` (inc
 ```
 
 **State Definitions:**
-- `[ ]` : Incomplete / Todo (Core)
-- `[x]` : Complete / Done (Core)
-- `[/]` : In Progress / Partially Done (Extended)
-- `[-]` : Canceled / Dropped (Extended)
-- `[>]` : Deferred / Forwarded (Extended)
-- `[?]` : Question / Needs Review (Extended)
-- `[!]` : Alert / Notification Trigger (Extended)
 
-*Note: Environments that only support core GFM will render extended states as simple text `[-]` within a list item.*
+To maximize adoption for simple plain-text users while supporting complex App migrations, MDTS defines two compliance levels:
+
+**Level 1: Core (Strictly Plain-Text)**
+- `[ ]` : Incomplete / Todo
+- `[x]` : Complete / Done
+
+**Level 2: Extended (App-Specific Mappings)**
+For developers building parsers, bridging proprietary data, or supporting complex project management workflows:
+- `[/]` : In Progress / Partially Done
+- `[?]` : On Hold / Needs Review / Question
+- `[!]` : Canceled / Dropped
+
+*Note: Environments that only support core GFM will degrade gracefully, rendering extended states as plain text `[-]` within a standard list item.*
 
 ### Priority
 

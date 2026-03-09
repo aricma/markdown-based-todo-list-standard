@@ -35,10 +35,8 @@
      {#if openTab === 'states'}
       <div class="code-block">
 <pre><code>- [/] In Progress / Partially Done
-- [-] Canceled / Dropped
-- [>] Deferred / Forwarded
-- [?] Question / Needs Review
-- [!] Alert / Notification Trigger</code></pre>
+- [?] On Hold / Needs Review / Question
+- [!] Canceled / Dropped</code></pre>
       </div>
       <p class="tab-desc">Additional state brackets for complex workflows. Standard parsers degrade gracefully to simple text.</p>
     {/if}
