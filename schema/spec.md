@@ -73,7 +73,7 @@ To supercharge tasks for power users, MDTS supports arbitrary key-value metadata
 1. It must be placed immediately following the task definition, OR immediately following the task's Description if one exists.
 2. It must be indented exactly to the level of the task's text content.
 3. Multiple metadata key-value pairs can be stacked sequentially.
-4. Any metadata is allowed as long as it can be stringified and is readable in plain markdown (e.g. `deadline: 2026-10-31`, `priority: high`). Multiline YAML-style arrays are also supported for list values (e.g. `assignees:\n  - @aricma\n  - @john`).
+4. Any metadata is allowed as long as it can be stringified and is readable in plain markdown (e.g. `deadline: 2026-10-31`, `priority: high`). For list values like `attachment` or `assignees`, **single-level YAML array syntax** must be used, where each item is on a new line, indented relative to the key, and prefixed with a hyphen `-`.
 5. If a blank line or a non-metadata block is encountered, the metadata block is considered closed.
 
 ```markdown
