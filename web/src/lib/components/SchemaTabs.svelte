@@ -55,7 +55,8 @@
       <div class="code-block">
 <pre><code>- [ ] Prepare investor presentation
   deadline: 2026-10-31
-  location: Conference Room A
+  scheduled: * * * * 1
+  reminder: every tue @ 4pm
   assignee: @aricma</code></pre>
       </div>
       <p class="tab-desc">Supercharge tasks for power users. Support arbitrary key-value metadata indented immediately below a task.</p>

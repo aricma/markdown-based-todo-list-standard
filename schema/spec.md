@@ -5,6 +5,7 @@ Version: 0.1.0-draft
 The Markdown Todo Standard (MDTS) defines a clear, extensible schema for managing tasks, projects, and notes entirely in plain text Markdown. MDTS files are designed to be easily read by humans and robustly parsed by custom parsers.
 
 
+
 ## 1. Simple Todo Lists
 
 The foundation of MDTS is the standard GitHub Flavored Markdown (GFM) task list feature.
@@ -42,7 +43,21 @@ Priority is defined independently of the completion state. You can set the prior
 ```
 
 
-## 2. Task Metadata
+
+## 2. Descriptions and Notes
+
+Tasks can contain block elements like paragraphs. To associate content with a task, the content must be **indented** to align with the text of the task item (typically 2 or 4 spaces).
+
+The first paragraph immediately following a task is considered the **Description**. Any subsequent paragraphs are supplementary notes.
+
+```markdown
+- [ ] Write the quarterly report
+  The report should cover Q1 and Q2 metrics. (This is the description)
+
+  Make sure to include the new sales figures from the European division. (This is a note)
+```
+
+## 3. Task Metadata
 
 To supercharge tasks for power users, MDTS supports arbitrary key-value metadata. Metadata must follow a strict `key: value` format.
 
@@ -56,7 +71,8 @@ To supercharge tasks for power users, MDTS supports arbitrary key-value metadata
 ```markdown
 - [ ] Prepare investor presentation
   deadline: 2026-10-31
-  reminder: 2026-10-30 09:00
+  reminder: every tue @ 4pm
+  scheduled: 0 9 * * 1
   location: Conference Room A
   assignee: @aricma
   
@@ -64,21 +80,15 @@ To supercharge tasks for power users, MDTS supports arbitrary key-value metadata
 ```
 
 
-## 3. Projects and Complex Tasks
+
+
+## 4. Projects and Complex Tasks
 
 Tasks often require more context. MDTS allows tasks to act as containers for paragraphs, sub-tasks, and other block elements.
 
 To associate content with a task, the content must be **indented** to align with the text of the task item (typically 2 or 4 spaces).
 
-### 3.1 Paragraphs
-
-```markdown
-- [ ] Write the quarterly report
-  The report should cover Q1 and Q2 metrics.
-  Make sure to include the new sales figures from the European division.
-```
-
-### 3.2 Sub-tasks (Projects)
+### 4.1 Sub-tasks (Projects)
 
 To create a project or sub-task list, indent another list beneath the parent task:
 
@@ -91,13 +101,15 @@ To create a project or sub-task list, indent another list beneath the parent tas
 ```
 
 
-## 4. Attachments
+
+
+## 5. Attachments
 
 Attachments provide context to tasks. MDTS supports both local file paths and remote URLs as attachments. Attachments must be placed within the task's indented block.
 
 The standard syntax for an attachment is a Markdown link or image, optionally prefixed with a designator if specific rendering is required.
 
-### 4.1 Remote Attachments
+### 5.1 Remote Attachments
 
 A standard URL link.
 
@@ -106,7 +118,7 @@ A standard URL link.
   [Figma Mockup](https://figma.com/file/...)
 ```
 
-### 4.2 Local Attachments
+### 5.2 Local Attachments
 
 A link to a local file relative to the Markdown file.
 
@@ -115,7 +127,7 @@ A link to a local file relative to the Markdown file.
   [Q3 Guidelines](./docs/q3_guidelines.pdf)
 ```
 
-### 4.3 Media Attachments
+### 5.3 Media Attachments
 
 To embed media directly (images, videos), use the standard markdown image syntax:
 
@@ -125,7 +137,8 @@ To embed media directly (images, videos), use the standard markdown image syntax
 ```
 
 
-## 5. Parser Guidelines
+
+## 6. Parser Guidelines
 
 MDTS clients **must** implement a custom text parser from scratch rather than relying entirely on generic Markdown ASTs. This ensures strict compliance with the indentation and state-tracking rules unique to MDTS.
 
@@ -136,4 +149,5 @@ MDTS clients **must** implement a custom text parser from scratch rather than re
 
 ---
 *Draft compiled for initial peer review. Subject to change.*
+
 
