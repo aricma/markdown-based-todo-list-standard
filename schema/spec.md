@@ -99,7 +99,27 @@ To embed media directly (images, videos), use the standard markdown image syntax
   ![Screenshot Mobile](./assets/mobile_ui_bug.png)
 ```
 
-## 4. Parser Guidelines
+## 4. Task Metadata
+
+To supercharge tasks for power users, MDTS supports arbitrary key-value metadata. Metadata must follow a strict `key: value` format.
+
+**Rules for Metadata:**
+1. It must be placed on the line immediately following the task definition.
+2. It must be indented exactly to the level of the task's text content.
+3. Multiple metadata key-value pairs can be stacked sequentially.
+4. If a blank line or a non-metadata block is encountered, the metadata block is considered closed.
+
+```markdown
+- [ ] Prepare investor presentation
+  deadline: 2026-10-31
+  reminder: 2026-10-30 09:00
+  location: Conference Room A
+  assignee: @aricma
+  
+  Please make sure all the Q3 charts are finalized before the meeting.
+```
+
+## 5. Parser Guidelines
 
 MDTS clients **must** implement a custom text parser from scratch rather than relying entirely on generic Markdown ASTs. This ensures strict compliance with the indentation and state-tracking rules unique to MDTS.
 

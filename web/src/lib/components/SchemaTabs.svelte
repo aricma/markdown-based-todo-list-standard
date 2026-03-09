@@ -8,6 +8,7 @@
     <button class:active={openTab === 'projects'} onclick={() => openTab = 'projects'}>Projects</button>
     <button class:active={openTab === 'states'} onclick={() => openTab = 'states'}>Extended States</button>
     <button class:active={openTab === 'priority'} onclick={() => openTab = 'priority'}>Priority</button>
+    <button class:active={openTab === 'metadata'} onclick={() => openTab = 'metadata'}>Metadata</button>
     <button class:active={openTab === 'attachments'} onclick={() => openTab = 'attachments'}>Attachments</button>
   </div>
   
@@ -48,6 +49,16 @@
 - [ ] !!! Read a book (High Priority)</code></pre>
       </div>
       <p class="tab-desc">Priority is defined independently of the completion state using exclamation marks.</p>
+    {/if}
+
+    {#if openTab === 'metadata'}
+      <div class="code-block">
+<pre><code>- [ ] Prepare investor presentation
+  deadline: 2026-10-31
+  location: Conference Room A
+  assignee: @aricma</code></pre>
+      </div>
+      <p class="tab-desc">Supercharge tasks for power users. Support arbitrary key-value metadata indented immediately below a task.</p>
     {/if}
 
     {#if openTab === 'attachments'}
