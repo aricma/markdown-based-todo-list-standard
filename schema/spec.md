@@ -4,6 +4,7 @@ Version: 0.1.0-draft
 
 The Markdown Todo Standard (MDTS) defines a clear, extensible schema for managing tasks, projects, and notes entirely in plain text Markdown. MDTS files are designed to be easily read by humans and robustly parsed by custom parsers.
 
+
 ## 1. Simple Todo Lists
 
 The foundation of MDTS is the standard GitHub Flavored Markdown (GFM) task list feature.
@@ -40,66 +41,8 @@ Priority is defined independently of the completion state. You can set the prior
 - [ ] !!! Read a book (High Priority)
 ```
 
-## 2. Projects and Complex Tasks
 
-Tasks often require more context. MDTS allows tasks to act as containers for paragraphs, sub-tasks, and other block elements.
-
-To associate content with a task, the content must be **indented** to align with the text of the task item (typically 2 or 4 spaces).
-
-### 2.1 Paragraphs
-
-```markdown
-- [ ] Write the quarterly report
-  The report should cover Q1 and Q2 metrics.
-  Make sure to include the new sales figures from the European division.
-```
-
-### 2.2 Sub-tasks (Projects)
-
-To create a project or sub-task list, indent another list beneath the parent task:
-
-```markdown
-- [ ] Prepare for Launch
-  - [x] Create marketing assets
-  - [/] Deploy landing page
-    Waiting on DNS propagation.
-  - [ ] Send newsletter
-```
-
-## 3. Attachments
-
-Attachments provide context to tasks. MDTS supports both local file paths and remote URLs as attachments. Attachments must be placed within the task's indented block.
-
-The standard syntax for an attachment is a Markdown link or image, optionally prefixed with a designator if specific rendering is required.
-
-### 3.1 Remote Attachments
-
-A standard URL link.
-
-```markdown
-- [ ] Review design mockups
-  [Figma Mockup](https://figma.com/file/...)
-```
-
-### 3.2 Local Attachments
-
-A link to a local file relative to the Markdown file.
-
-```markdown
-- [ ] Read the updated guidelines
-  [Q3 Guidelines](./docs/q3_guidelines.pdf)
-```
-
-### 3.3 Media Attachments
-
-To embed media directly (images, videos), use the standard markdown image syntax:
-
-```markdown
-- [ ] Verify UI changes
-  ![Screenshot Mobile](./assets/mobile_ui_bug.png)
-```
-
-## 4. Task Metadata
+## 2. Task Metadata
 
 To supercharge tasks for power users, MDTS supports arbitrary key-value metadata. Metadata must follow a strict `key: value` format.
 
@@ -120,6 +63,68 @@ To supercharge tasks for power users, MDTS supports arbitrary key-value metadata
   Please make sure all the Q3 charts are finalized before the meeting.
 ```
 
+
+## 3. Projects and Complex Tasks
+
+Tasks often require more context. MDTS allows tasks to act as containers for paragraphs, sub-tasks, and other block elements.
+
+To associate content with a task, the content must be **indented** to align with the text of the task item (typically 2 or 4 spaces).
+
+### 3.1 Paragraphs
+
+```markdown
+- [ ] Write the quarterly report
+  The report should cover Q1 and Q2 metrics.
+  Make sure to include the new sales figures from the European division.
+```
+
+### 3.2 Sub-tasks (Projects)
+
+To create a project or sub-task list, indent another list beneath the parent task:
+
+```markdown
+- [ ] Prepare for Launch
+  - [x] Create marketing assets
+  - [/] Deploy landing page
+    Waiting on DNS propagation.
+  - [ ] Send newsletter
+```
+
+
+## 4. Attachments
+
+Attachments provide context to tasks. MDTS supports both local file paths and remote URLs as attachments. Attachments must be placed within the task's indented block.
+
+The standard syntax for an attachment is a Markdown link or image, optionally prefixed with a designator if specific rendering is required.
+
+### 4.1 Remote Attachments
+
+A standard URL link.
+
+```markdown
+- [ ] Review design mockups
+  [Figma Mockup](https://figma.com/file/...)
+```
+
+### 4.2 Local Attachments
+
+A link to a local file relative to the Markdown file.
+
+```markdown
+- [ ] Read the updated guidelines
+  [Q3 Guidelines](./docs/q3_guidelines.pdf)
+```
+
+### 4.3 Media Attachments
+
+To embed media directly (images, videos), use the standard markdown image syntax:
+
+```markdown
+- [ ] Verify UI changes
+  ![Screenshot Mobile](./assets/mobile_ui_bug.png)
+```
+
+
 ## 5. Parser Guidelines
 
 MDTS clients **must** implement a custom text parser from scratch rather than relying entirely on generic Markdown ASTs. This ensures strict compliance with the indentation and state-tracking rules unique to MDTS.
@@ -131,3 +136,4 @@ MDTS clients **must** implement a custom text parser from scratch rather than re
 
 ---
 *Draft compiled for initial peer review. Subject to change.*
+
