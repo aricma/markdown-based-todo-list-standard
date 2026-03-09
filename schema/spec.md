@@ -107,7 +107,8 @@ To supercharge tasks for power users, MDTS supports arbitrary key-value metadata
 1. It must be placed on the line immediately following the task definition.
 2. It must be indented exactly to the level of the task's text content.
 3. Multiple metadata key-value pairs can be stacked sequentially.
-4. If a blank line or a non-metadata block is encountered, the metadata block is considered closed.
+4. Any metadata is allowed as long as it can be stringified and is readable in plain markdown (e.g. `deadline: 2026-10-31`, `priority: high`, `assignees: ["@aricma", "@john"]`).
+5. If a blank line or a non-metadata block is encountered, the metadata block is considered closed.
 
 ```markdown
 - [ ] Prepare investor presentation
