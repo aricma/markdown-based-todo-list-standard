@@ -70,13 +70,13 @@ To supercharge tasks for power users, MDTS supports arbitrary key-value metadata
 
 ```markdown
 - [ ] Prepare investor presentation
+  Please make sure all the Q3 charts are finalized before the meeting.
+  
   deadline: 2026-10-31
   reminder: every tue @ 4pm
   scheduled: 0 9 * * 1
   location: Conference Room A
   assignee: @aricma
-  
-  Please make sure all the Q3 charts are finalized before the meeting.
 ```
 
 

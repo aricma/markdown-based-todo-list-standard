@@ -54,6 +54,8 @@
     {#if openTab === 'metadata'}
       <div class="code-block">
 <pre><code>- [ ] Prepare investor presentation
+  Please make sure all the Q3 charts are finalized before the meeting.
+
   deadline: 2026-10-31
   scheduled: * * * * 1
   reminder: every tue @ 4pm
