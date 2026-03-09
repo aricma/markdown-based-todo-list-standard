@@ -48,7 +48,7 @@ Priority is defined independently of the completion state. You can set the prior
 
 Tasks can contain block elements like paragraphs. To associate content with a task, the content must be **indented** to align with the text of the task item (typically 2 or 4 spaces).
 
-The indented block of text immediately following a task is considered its **Description**, which can span multiple lines and paragraphs until a new task or an indentation break occurs. Blank lines are permitted within a description block as long as the next non-blank line maintains the required indentation. If metadata is included, the description block must precede the metadata.
+The indented block of text immediately following a task is considered its **Description**. The description can span multiple lines and paragraphs, and blank lines are permitted as long as the next line maintains the required indentation. However, **as soon as a Metadata block or a new Task begins, the description is considered closed.**
 
 ```markdown
 - [ ] Write the quarterly report
