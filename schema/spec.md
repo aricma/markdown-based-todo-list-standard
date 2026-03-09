@@ -50,11 +50,19 @@ Tasks can contain block elements like paragraphs. To associate content with a ta
 
 The indented block of text immediately following a task is considered its **Description**. The description can span multiple lines and paragraphs, and blank lines are permitted as long as the next line maintains the required indentation. However, **as soon as a Metadata block or a new Task begins, the description is considered closed.**
 
+### 2.1 Full Markdown Support
+
+Because the description is a standard indented markdown block, it is a fully-fledged markdown experience. You can insert headers `###`, code blocks ` ``` `, blockquotes `>`, tables, and more within a description. 
+
+However, since heavy markdown components do not render nicely in raw plain-text readers, we strongly recommend keeping descriptions light and text-based. In the future, advanced MDTS rendering apps (e.g. VSCode extentions or GUI Todo Managers) can parse and render these robust description blocks in a dedicated "Detail View" modal to hide the markdown complexity from the user's main list feed.
+
 ```markdown
 - [ ] Write the quarterly report
   The report should cover Q1 and Q2 metrics.
 
-  Make sure to include the new sales figures from the European division.
+  ### Action Items
+  - Reach out to sales team.
+  - Compile pipeline review.
 ```
 
 ## 3. Task Metadata
