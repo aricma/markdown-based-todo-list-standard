@@ -48,13 +48,11 @@ Priority is defined independently of the completion state. You can set the prior
 
 Tasks can contain block elements like paragraphs. To associate content with a task, the content must be **indented** to align with the text of the task item (typically 2 or 4 spaces).
 
-The first paragraph immediately following a task is considered the **Description**. Any subsequent paragraphs are supplementary notes.
+The indented block of text immediately following a task is considered its **Description**, which can span multiple lines and paragraphs until a new task or an indentation break occurs. If metadata is included, the description block must precede the metadata.
 
 ```markdown
 - [ ] Write the quarterly report
-  The report should cover Q1 and Q2 metrics. (This is the description)
-
-  Make sure to include the new sales figures from the European division. (This is a note)
+  The report should cover Q1 and Q2 metrics. Make sure to include the new sales figures from the European division.
 ```
 
 ## 3. Task Metadata
@@ -62,7 +60,7 @@ The first paragraph immediately following a task is considered the **Description
 To supercharge tasks for power users, MDTS supports arbitrary key-value metadata. Metadata must follow a strict `key: value` format.
 
 **Rules for Metadata:**
-1. It must be placed on the line immediately following the task definition.
+1. It must be placed immediately following the task definition, OR immediately following the task's Description if one exists.
 2. It must be indented exactly to the level of the task's text content.
 3. Multiple metadata key-value pairs can be stacked sequentially.
 4. Any metadata is allowed as long as it can be stringified and is readable in plain markdown (e.g. `deadline: 2026-10-31`, `priority: high`, `assignees: ["@aricma", "@john"]`).
