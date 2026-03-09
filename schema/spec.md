@@ -65,7 +65,7 @@ To supercharge tasks for power users, MDTS supports arbitrary key-value metadata
 1. It must be placed immediately following the task definition, OR immediately following the task's Description if one exists.
 2. It must be indented exactly to the level of the task's text content.
 3. Multiple metadata key-value pairs can be stacked sequentially.
-4. Any metadata is allowed as long as it can be stringified and is readable in plain markdown (e.g. `deadline: 2026-10-31`, `priority: high`, `assignees: ["@aricma", "@john"]`).
+4. Any metadata is allowed as long as it can be stringified and is readable in plain markdown (e.g. `deadline: 2026-10-31`, `priority: high`). Multiline YAML-style arrays are also supported for list values (e.g. `assignees:\n  - @aricma\n  - @john`).
 5. If a blank line or a non-metadata block is encountered, the metadata block is considered closed.
 
 ```markdown
@@ -105,9 +105,9 @@ To create a project or sub-task list, indent another list beneath the parent tas
 
 ## 5. Attachments
 
-Attachments provide context to tasks. MDTS supports both local file paths and remote URLs as attachments. Attachments must be placed within the task's indented block.
+Attachments provide context to tasks. In MDTS, attachments are treated as **Metadata**, not inline description text. They must be defined using the `attachment:` key followed by a YAML-style list of links or images.
 
-The standard syntax for an attachment is a Markdown link or image, optionally prefixed with a designator if specific rendering is required.
+MDTS supports both local file paths and remote URLs.
 
 ### 5.1 Remote Attachments
 
@@ -115,7 +115,8 @@ A standard URL link.
 
 ```markdown
 - [ ] Review design mockups
-  [Figma Mockup](https://figma.com/file/...)
+  attachment:
+    - [Figma Mockup](https://figma.com/file/...)
 ```
 
 ### 5.2 Local Attachments
@@ -124,7 +125,8 @@ A link to a local file relative to the Markdown file.
 
 ```markdown
 - [ ] Read the updated guidelines
-  [Q3 Guidelines](./docs/q3_guidelines.pdf)
+  attachment:
+    - [Q3 Guidelines](./docs/q3_guidelines.pdf)
 ```
 
 ### 5.3 Media Attachments
@@ -133,7 +135,8 @@ To embed media directly (images, videos), use the standard markdown image syntax
 
 ```markdown
 - [ ] Verify UI changes
-  ![Screenshot Mobile](./assets/mobile_ui_bug.png)
+  attachment:
+    - ![Screenshot Mobile](./assets/mobile_ui_bug.png)
 ```
 
 

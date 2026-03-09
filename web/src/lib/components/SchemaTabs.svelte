@@ -67,11 +67,13 @@
     {#if openTab === 'attachments'}
       <div class="code-block">
 <pre><code>- [ ] Review design mockups
-  [Figma Mockup](https://figma.com/file/...)
+  attachment:
+    - [Figma Mockup](https://figma.com/file/...)
 - [ ] Verify UI changes
-  ![Screenshot Mobile](./assets/mobile_ui_bug.png)</code></pre>
+  attachment:
+    - ![Screenshot Mobile](./assets/mobile_ui_bug.png)</code></pre>
       </div>
-      <p class="tab-desc">Associate context with tasks. MDTS supports both remote URLs and local file attachments within the indented block.</p>
+      <p class="tab-desc">Associate context with tasks. Attachments are defined as metadata arrays of standard URLs or file paths.</p>
     {/if}
   </div>
 </div>
