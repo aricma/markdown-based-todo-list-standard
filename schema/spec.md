@@ -22,7 +22,7 @@ To maximize adoption for simple plain-text users while supporting complex App mi
 
 **Level 1: Core (Strictly Plain-Text)**
 - `[ ]` : Incomplete / Todo
-- `[x]` : Complete / Done
+- `[x]` or `[X]` : Complete / Done (Case-insensitive)
 
 **Level 2: Extended (App-Specific Mappings)**
 For developers building parsers, bridging proprietary data, or supporting complex project management workflows:
